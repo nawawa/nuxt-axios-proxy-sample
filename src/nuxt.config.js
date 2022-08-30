@@ -75,7 +75,7 @@ export default {
       local: {
         endpoints: {
           login: { url: `/login`, method: 'post' },
-          logout: { url: `/logout`, method: 'post' },
+          logout: false,
         }
       },
     }

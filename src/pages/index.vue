@@ -22,15 +22,9 @@ export default {
           console.log(err)
         })
     },
-    async logout() {
-      await this.$auth.logout()
-        .then((data) => {
-          console.log('こちらですよ')
-          console.log(data)
-        })
-        .catch((err) => {
-          console.log(err)
-        })
+    logout() {
+      this.$auth.logout();
+      // この際 Store をクリアするなど？
     }
   }
 }
