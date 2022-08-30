@@ -56,10 +56,6 @@ export default {
       target: process.env.SERVER_CONTAINER_URL, 
       pathRewrite: {'^/api/': '/'}
     },
-    '/api/logout': {
-      target: process.env.SERVER_CONTAINER_URL, 
-      pathRewrite: {'^/api/': '/'}
-    }
   },
   publicRuntimeConfig: {
     AUTH_SCHEME: process.env.AUTH_SCHEME
