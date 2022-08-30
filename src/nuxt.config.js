@@ -55,16 +55,27 @@ export default {
     '/api/login': {
       target: process.env.SERVER_CONTAINER_URL, 
       pathRewrite: {'^/api/': '/'}
+    },
+    '/api/logout': {
+      target: process.env.SERVER_CONTAINER_URL, 
+      pathRewrite: {'^/api/': '/'}
     }
   },
   publicRuntimeConfig: {
     AUTH_SCHEME: process.env.AUTH_SCHEME
   },
   auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: false,
+      home: '/'
+    },
     strategies: {
       local: {
         endpoints: {
           login: { url: `/login`, method: 'post' },
+          logout: { url: `/logout`, method: 'post' },
         }
       },
     }

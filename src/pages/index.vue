@@ -2,6 +2,8 @@
 <div>
   <p @click="getUser">{{ name }}</p>
   <NuxtLink to="/login">ログイン</NuxtLink>
+
+  <button @click="logout">ログアウト</button>
 </div>
 </template>
 
@@ -11,10 +13,20 @@ export default {
     name: '名前',
   }),
   methods: {
-    getUser() {
-      this.$axios.$get('/api/user')
+    async getUser() {
+      await this.$axios.$get('/api/user')
         .then((data) => {
           this.name = data.name
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    async logout() {
+      await this.$auth.logout()
+        .then((data) => {
+          console.log('こちらですよ')
+          console.log(data)
         })
         .catch((err) => {
           console.log(err)
